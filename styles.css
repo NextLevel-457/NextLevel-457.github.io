@@ -10,3 +10,11 @@ h1 {
   font: menu;
   font-size: 300%;
 }
+h2 {
+  color: #DDDDDD;
+  font: menu;
+  font-size: 200%;
+}
+a {
+  color: #FFFFFF;
+}
