@@ -5,7 +5,7 @@
 <body>
     <script>
         window.onload = function() {
-            window.location.replace("https://nextlevel-457.github.io/secret-messages?code=${window.location.pathname}")
+            window.location.replace("https://nextlevel-457.github.io/secret-messages?code=${encodeURIComponent(window.location.pathname)}")
         }
     </script>
 </body>
