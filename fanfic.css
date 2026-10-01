@@ -5,3 +5,37 @@ body {
   font-size: 16;
   line-height: 1.5;
 }
+button {
+  background-color: rgb(35,35,40);
+  border-color: lightgray;
+  color: white;
+}
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.left {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  float: left;
+}
+.right {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  float: right;
+}
+.toolbar {
+  display: grid;
+  grid-template-rows: 50% 50%;
+  grid-template-columns: 40% 20% 40%;
+  position: sticky;
+  top: 0;
+  background-color: rgb(40,40,45);
+  border-style: solid;
+  border-width: 2px;
+  border-color: whitesmoke;
+  padding: 2px;
+}
