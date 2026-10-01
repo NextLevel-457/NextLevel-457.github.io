@@ -4,6 +4,7 @@ var chapters = 13
 var chapterCache = ["","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""]
 
 window.onpagehide = async function(_event) {
+    console.log("Setting cookies to: " + currentChapter.toString())
     await cookieStore.set({
       name: "chapter",
       value: currentChapter.toString(),
@@ -16,7 +17,7 @@ document.addEventListener("DOMContentLoaded", async function(_event){
 
     var cookie = await cookieStore.get("chapter");
     console.log("Found cookies: \"" + cookie.value + "\"")
-    if (cookie != null) currentChapter = Number(cookie.value)
+    if (cookie.value != null && cookie.value != undefined && !isNaN(Number(cookie.value))) currentChapter = Number(cookie.value)
     if (currentChapter < 1 || currentChapter > chapters) currentChapter = 1
 
     document.getElementById("button_previous").addEventListener("click", function(_event) {
