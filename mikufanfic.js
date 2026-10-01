@@ -3,18 +3,6 @@ var chapterElement
 var chapters = 13
 var chapterCache = ["","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""]
 
-document.onvisibilitychange = async function(_event) {
-    if (document.visibilityState == "hidden") {
-        await cookieStore.delete("chapter")
-        console.log("Setting cookies to: " + currentChapter.toString())
-        await cookieStore.set({
-        name: "chapter",
-        value: currentChapter.toString(),
-        expires: Date.now() + (31*24*60*60*1000),
-        });
-    }
-}
-
 document.addEventListener("DOMContentLoaded", async function(_event){
     loadConfig()
 
@@ -82,6 +70,12 @@ function loadChapter(chapter) {
         document.body.appendChild(chapterElement);
         // Update label
         document.getElementById("chapter_label").innerText = "Chapter " + chapter.toString()
+        // Update cookies
+        cookieStore.set({
+            name: "chapter",
+            value: currentChapter.toString(),
+            expires: Date.now() + (31*24*60*60*1000),
+        });
         return
     }
     // Create chapter request
@@ -101,6 +95,12 @@ function loadChapter(chapter) {
         document.body.appendChild(chapterElement);
         // Update label
         document.getElementById("chapter_label").innerText = "Chapter " + chapter.toString()
+        // Update cookies
+        cookieStore.set({
+            name: "chapter",
+            value: currentChapter.toString(),
+            expires: Date.now() + (31*24*60*60*1000),
+        });
     }
     // If it fails, don't change anything, but send an error in the console.
     // TODO: Create a visible error popup
