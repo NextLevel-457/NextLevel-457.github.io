@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", async function(_event){
     loadConfig()
 
     var cookie = await cookieStore.get("chapter");
-    console.log("Found cookies: \"" + cookie + "\"")
+    console.log("Found cookies: \"" + cookie.value + "\"")
     if (cookie != null) currentChapter = Number(cookie.value)
     if (currentChapter < 1 || currentChapter > chapters) currentChapter = 1
 
