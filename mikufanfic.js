@@ -16,8 +16,10 @@ document.addEventListener("DOMContentLoaded", async function(_event){
     loadConfig()
 
     var cookie = await cookieStore.get("chapter");
-    console.log("Found cookies: \"" + cookie.value + "\"")
-    if (cookie.value != null && cookie.value != undefined && !isNaN(Number(cookie.value))) currentChapter = Number(cookie.value)
+    if (cookie.value != null && cookie.value != undefined && !isNaN(Number(cookie.value))) {
+        currentChapter = Number(cookie.value)
+        console.log("Found cookies: \"" + cookie.value + "\"")
+    }
     if (currentChapter < 1 || currentChapter > chapters) currentChapter = 1
 
     document.getElementById("button_previous").addEventListener("click", function(_event) {
