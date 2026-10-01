@@ -3,13 +3,16 @@ var chapterElement
 var chapters = 13
 var chapterCache = ["","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""]
 
-window.onpagehide = async function(_event) {
-    console.log("Setting cookies to: " + currentChapter.toString())
-    await cookieStore.set({
-      name: "chapter",
-      value: currentChapter.toString(),
-      expires: Date.now() + (31*24*60*60*1000),
-    });
+document.onvisibilitychange = async function(_event) {
+    if (document.visibilityState == "hidden") {
+        await cookieStore.delete("chapter")
+        console.log("Setting cookies to: " + currentChapter.toString())
+        await cookieStore.set({
+        name: "chapter",
+        value: currentChapter.toString(),
+        expires: Date.now() + (31*24*60*60*1000),
+        });
+    }
 }
 
 document.addEventListener("DOMContentLoaded", async function(_event){
